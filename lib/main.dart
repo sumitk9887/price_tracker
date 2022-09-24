@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:price_tracker/pages/history_page.dart';
 import 'package:price_tracker/pages/home_page.dart';
+import 'package:price_tracker/utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       //home: HomePage(),
     routes: {
       "/":(context) => HomePage(),
-      "/history_page":(context)=>HistoryPage() 
+      MyRoutes.HomePage:(context) => HomePage(),
+      MyRoutes.HistoryPage:(context)=>HistoryPage() 
     },);
     
   }

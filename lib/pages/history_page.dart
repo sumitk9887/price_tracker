@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class HistoryPage extends StatelessWidget {
@@ -5,8 +7,8 @@ class HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Hello to history page'),
+    return MaterialApp(
+      home:  Text('Hello to history page'),
     );
   }
 }
