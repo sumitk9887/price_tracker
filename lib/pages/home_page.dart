@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   Future apicall() async {
     http.Response response;
     response = await http.get(Uri.parse(
-        "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC"));
+        "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC,MRF"));
     if (response.statusCode == 200) {
       setState(() {
         //stringResponse = response.body;
@@ -38,10 +38,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         appBar: AppBar(
-          
+          backgroundColor: Colors.pinkAccent[100],
           title: Text('Stocks'),
           actions: <Widget>[
             IconButton(
@@ -84,7 +83,9 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.red,
                         size: 40,
                       ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, MyRoutes.HistoryPage);
+                },
               ),
             ).p2();
           },

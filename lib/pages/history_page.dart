@@ -2,13 +2,15 @@
 
 import 'package:flutter/material.dart';
 
+import '../utils/routes.dart';
+
 class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home:  Text('Hello to history page'),
+    return Scaffold(
+      
     );
   }
 }
