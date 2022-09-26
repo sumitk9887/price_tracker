@@ -1,13 +1,9 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:flutter/gestures.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:price_tracker/models/price.dart';
 import 'package:price_tracker/pages/history_page.dart';
 import 'package:price_tracker/services/api_manager.dart';
-import 'package:price_tracker/utils/routes.dart';
 import "package:velocity_x/velocity_x.dart";
-import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,6 +41,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.pinkAccent[100],
           title: Text('Stocks'),
           actions: <Widget>[
@@ -54,17 +51,18 @@ class _HomePageState extends State<HomePage>
                   return IconButton(
                     tooltip: 'Go to history',
                     onPressed: () {
-
-                      var tempPrice=0;
-                      var count=0;
-                      for(var i=0;i<snapshot.data!.data.length.toInt();i++){
-                        if(snapshot.data!.data[i].price>tempPrice){
-                          tempPrice=tempPrice + snapshot.data!.data[i].price.toInt();
-                          count=count+i; 
-                          print(count);
+                      var tempPrice = 0;
+                      var count = 0;
+                      for (var i = 0;
+                          i < snapshot.data!.data.length.toInt();
+                          i++) {
+                        if (snapshot.data!.data[i].price > tempPrice) {
+                          tempPrice =
+                              tempPrice + snapshot.data!.data[i].price.toInt();
+                          count = count + i;
                         }
                       }
-                  
+
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -104,7 +102,7 @@ class _HomePageState extends State<HomePage>
                             style: TextStyle(
                                 fontWeight: FontWeight.w500, fontSize: 18)),
                     title: dataPrice != null
-                        ? Text("₹" + dataPrice.price.toString(),
+                        ? Text("₹${dataPrice.price}",
                             textAlign: TextAlign.end)
                         : Text("null"),
                     trailing: dataPrice != null
