@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //home: HomePage(),
     routes: {
-      "/":(context) => HomePage(),
+      "/":(context) => HistoryPage(),
       MyRoutes.HomePage:(context) => HomePage(),
       MyRoutes.HistoryPage:(context)=>HistoryPage() 
     },);

@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   Future apicall() async {
     http.Response response;
     response = await http.get(Uri.parse(
-        "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC,MRF,HDFC,TATA,ACC,RIL"));
+        "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC,MRF,HDFC,TATA,ACC"));
     if (response.statusCode == 200) {
       setState(() {
         //stringResponse = response.body;
