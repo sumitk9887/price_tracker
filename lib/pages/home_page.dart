@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:flutter/gestures.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:price_tracker/models/price.dart';
@@ -15,26 +16,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-// String? stringResponse;
-// Map? mapResponse;
-// List? listResponse;
-
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  // Future apicall() async {
-  //   http.Response response;
-  //   response = await http.get(Uri.parse(
-  //       "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC,MRF,HDFC,TATA,ACC"));
-  //   if (response.statusCode == 200) {
-  //     setState(() {
-  //       //stringResponse = response.body;
-  //       mapResponse = json.decode(response.body);
-  //       listResponse = mapResponse!["data"];
-  //     });
-  //   }
-  // }
-
-  //
   late AnimationController _animationController;
 
   Future<Price>? _priceModel;
@@ -65,28 +48,44 @@ class _HomePageState extends State<HomePage>
           backgroundColor: Colors.pinkAccent[100],
           title: Text('Stocks'),
           actions: <Widget>[
-            IconButton(
-              tooltip: 'Go to history',
-              onPressed: () {
-                Navigator.pushNamed(context, MyRoutes.HistoryPage);
-              },
-              icon: const Icon(Icons.history),
-            ),
+            FutureBuilder(
+                future: _priceModel,
+                builder: (context, snapshot) {
+                  return IconButton(
+                    tooltip: 'Go to history',
+                    onPressed: () {
+
+                      var tempPrice=0;
+                      var count=0;
+                      for(var i=0;i<snapshot.data!.data.length.toInt();i++){
+                        if(snapshot.data!.data[i].price>tempPrice){
+                          tempPrice=tempPrice + snapshot.data!.data[i].price.toInt();
+                          count=count+i; 
+                          print(count);
+                        }
+                      }
+                  
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HistoryPage(
+                                    price: snapshot.data,
+                                    index: count,
+                                  )));
+                    },
+                    icon: const Icon(Icons.history),
+                  );
+                }),
             Center(
               child: GestureDetector(
                 onTap: _iconTapped,
                 child: AnimatedIcon(
                   icon: AnimatedIcons.play_pause,
                   progress: _animationController,
-                  size: 40,
+                  size: 30,
                 ),
               ),
             ),
-            // IconButton(
-            //   tooltip: 'Retrive live price',
-            //   onPressed: () {},
-            //   icon: const Icon(Icons.play_circle),
-            // )
           ],
         ),
         body: FutureBuilder<Price>(
