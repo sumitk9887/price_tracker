@@ -28,12 +28,11 @@ class HistoryPage extends StatelessWidget {
             icon: Icon(Icons.arrow_back)),
       ),
 
-      // ignore: prefer_const_literals_to_create_immutables
       body: Card(
         color: Color.fromARGB(255, 227, 135, 165),
         elevation: 0,
         child: Row(
-          children: [
+          children: [ 
             Text(price!.data[index].price.toString(),
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18))
                 .p2(),
