@@ -7,28 +7,27 @@ import 'package:velocity_x/velocity_x.dart';
 import '../models/price.dart';
 import '../utils/routes.dart';
 
-class HistoryPage extends StatelessWidget {
+class HistoryPage extends StatefulWidget {
   final StreamController? streamController;
   final index;
   final Price? price;
   const HistoryPage({this.price, this.index, this.streamController});
 
-  
+  @override
+  State<HistoryPage> createState() => _HistoryPageState();
+}
 
-
-
-
-
+class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     String changePercentage;
     changePercentage =
-        ((price!.data[index].change / price!.data[index].price) * 100)
+        ((widget.price!.data[widget.index].change / widget.price!.data[widget.index].price) * 100)
             .toStringAsFixed(2);
     // ignore: duplicate_ignore
     return Scaffold(
       appBar: AppBar(
-        title: Text(price!.data[index].sid.toString()),
+        title: Text(widget.price!.data[widget.index].sid.toString()),
         centerTitle: true,
         leading: IconButton(
             onPressed: () {
@@ -37,7 +36,7 @@ class HistoryPage extends StatelessWidget {
             icon: Icon(Icons.arrow_back)),
       ),
       body: StreamBuilder<dynamic>(
-        initialData: streamController?.stream,
+        initialData: widget.streamController?.stream,
         
         builder: (context, snapshort) {
           return Card(
@@ -45,10 +44,10 @@ class HistoryPage extends StatelessWidget {
             elevation: 0,
             child: Row(
               children: [
-                Text(price!.data[index].price.toString(),
+                Text(widget.price!.data[widget.index].price.toString(),
                         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18))
                     .p2(),
-                price!.data[index].change >= 0
+                widget.price!.data[widget.index].change >= 0
                     ? Icon(
                         Icons.arrow_drop_up_outlined,
                         color: Colors.green,
@@ -59,7 +58,7 @@ class HistoryPage extends StatelessWidget {
                         color: Colors.red,
                         size: 40,
                       ),
-                Text("₹${price!.data[index].change}  ",
+                Text("₹${widget.price!.data[widget.index].change}  ",
                     style: TextStyle(fontSize: 18)),
                 Text("$changePercentage%", style: TextStyle(fontSize: 18))
               ],
