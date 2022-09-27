@@ -8,6 +8,7 @@ import 'package:price_tracker/models/price.dart';
 
 // ignore: camel_case_types
 class API_Manager {
+  
   Future<Price> getPrice() async {
     var client = http.Client();
     var newsModel;
@@ -19,6 +20,8 @@ class API_Manager {
         var jsonMap = json.decode(jsonString);
 
         newsModel = Price.fromJson(jsonMap);
+        
+        
       }
     // ignore: non_constant_identifier_names
     } catch (Exception) {
