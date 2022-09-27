@@ -112,7 +112,6 @@ class _HomePageState extends State<HomePage> {
                               builder: (context) => HistoryPage(
                                     price: snapshot.data,
                                     index: index,
-                                  streamController: _streamController,
                                   )));
                     },
                   ),
