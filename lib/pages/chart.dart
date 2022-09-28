@@ -24,7 +24,9 @@ class _ChartState extends State<Chart> {
     return SafeArea(
         child: Scaffold(
             body: SfCartesianChart(
+      //title: ChartTitle(text: 'Yearly sales analysis'),
       tooltipBehavior: _tooltipBehavior,
+
       series: <FastLineSeries>[
         FastLineSeries<SalesData, double>(
           name: "Price",
@@ -35,7 +37,7 @@ class _ChartState extends State<Chart> {
           yAxisName: "Time",
           dataLabelSettings: const DataLabelSettings(isVisible: true),
           enableTooltip: true,
-          color: const Color.fromARGB(255, 77, 232, 66),
+          color: const Color.fromARGB(255, 99, 235, 89),
           width: 4,
           opacity: 1,
         )
@@ -43,6 +45,7 @@ class _ChartState extends State<Chart> {
       primaryXAxis: NumericAxis(
         edgeLabelPlacement: EdgeLabelPlacement.shift,
       ),
+
       primaryYAxis: NumericAxis(labelFormat: '₹{value}'),
     )));
   }
@@ -50,16 +53,13 @@ class _ChartState extends State<Chart> {
   List<SalesData> getChartData() {
     final List<SalesData> chartData = [
       SalesData(09.15, 2313.55),
-      SalesData(09.30, 2329.60),
-      SalesData(09.45, 2308.45),
-      SalesData(10.30, 2309.66),
-      SalesData(10.45, 2308.45),
-      SalesData(10.50, 2315.00),
-      SalesData(11.15, 2303.15),
-      SalesData(11.30, 2311.26),
-      SalesData(11.45, 2366.2),
-      SalesData(11.50, 2315.00),
-      SalesData(12.15, 2313.55),
+      SalesData(10.15, 2329.60),
+      SalesData(11.15, 2308.45),
+      SalesData(12.15, 2315.00),
+      SalesData(13.15, 2313.55),
+      SalesData(14.15, 2329.60),
+      SalesData(15.10, 2308.45),
+      SalesData(15.15, 2315.00),
     ];
     return chartData;
   }
