@@ -20,6 +20,7 @@ class HistoryPage extends StatelessWidget {
     // ignore: duplicate_ignore
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 240, 168, 192),
         title: Text(price!.data[index].sid.toString()),
         centerTitle: true,
         leading: IconButton(
@@ -31,7 +32,7 @@ class HistoryPage extends StatelessWidget {
       body: Column(
         children: [
           Card(
-            color: Color.fromARGB(255, 227, 135, 165),
+            color: Color.fromARGB(255, 215, 181, 221),
             elevation: 0,
             child: Row(
               children: [
@@ -57,30 +58,15 @@ class HistoryPage extends StatelessWidget {
             ).p4(),
           ).py8(),
           Center(
-              child: Container(
-            child: Chart(),
+              child: SizedBox(
             height: 400,
+            child: Chart(),
           )),
         ],
       ),
     );
   }
 }
-
-
-// class HistoryPage extends StatefulWidget {
-//   final Price? price;
-//   HistoryPage({this.price});
-
-//   @override
-//   State<HistoryPage> createState() => _HistoryPageState();
-// }
-
-// class _HistoryPageState extends State<HistoryPage> {
-
-
-
-
 
 
   

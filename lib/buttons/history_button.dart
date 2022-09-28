@@ -5,11 +5,12 @@ import '../pages/history_page.dart';
 
 class HistoryButton extends StatelessWidget {
   final Price? snapshot;
-  const HistoryButton({this.snapshot});
+  const HistoryButton({super.key, this.snapshot});
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      color: Colors.black,
       tooltip: 'Go to history',
       onPressed: () {
         var tempPrice = 0;
