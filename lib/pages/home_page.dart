@@ -44,6 +44,6 @@ class _HomePageState extends State<HomePage> {
             Center(child: PlayPauseButton()), //gesture play pause button
           ],
         ),
-        body: Body());
+        body: SafeArea(child: Body()));
   }
 }
