@@ -13,7 +13,7 @@ class API_Manager {
 
     try {
       var response = await client.get(Uri.parse(
-          "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC,MRF,HDFC,TATA,ACC,RIL"));
+          "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC,MRF,HDFC,TATA,ACC,SBIN,RIL,RAIL,BAJAJ,JBM,SBIL,SBIC,IDBI"));
       if (response.statusCode == 200) {
         var jsonString = response.body;
         var jsonMap = json.decode(jsonString);
