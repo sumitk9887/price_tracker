@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //home: HomePage(),
-    routes: {
-      "/":(context) => HomePage(),
-      MyRoutes.HomePage:(context) => HomePage(),
-      MyRoutes.HistoryPage:(context)=>HistoryPage() 
-    },);
-    
+      routes: {
+        "/": (context) => HomePage(),
+        MyRoutes.HomePage: (context) => HomePage(),
+        MyRoutes.HistoryPage: (context) => HistoryPage()
+      },
+    );
   }
 }
