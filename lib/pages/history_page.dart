@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../models/price.dart';
 import '../utils/routes.dart';
+import 'chart.dart';
 
 class HistoryPage extends StatelessWidget {
   final index;
@@ -27,33 +28,41 @@ class HistoryPage extends StatelessWidget {
             },
             icon: Icon(Icons.arrow_back)),
       ),
-
-      body: Card(
-        color: Color.fromARGB(255, 227, 135, 165),
-        elevation: 0,
-        child: Row(
-          children: [
-            Text(price!.data[index].price.toString(),
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18))
-                .p2(),
-            price!.data[index].change >= 0
-                ? Icon(
-                    Icons.arrow_drop_up_outlined,
-                    color: Colors.green,
-                    size: 40,
-                  )
-                : Icon(
-                    Icons.arrow_drop_down_outlined,
-                    color: Colors.red,
-                    size: 40,
-                  ),
-            Text("₹${price!.data[index].change}  ",
-                style: TextStyle(fontSize: 18)),
-            Text("$changePercentage%",
-                style: TextStyle(fontSize: 18))
-          ],
-        ).p4(),
-      ).py8(),
+      body: Column(
+        children: [
+          Card(
+            color: Color.fromARGB(255, 227, 135, 165),
+            elevation: 0,
+            child: Row(
+              children: [
+                Text(price!.data[index].price.toString(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 18))
+                    .p2(),
+                price!.data[index].change >= 0
+                    ? Icon(
+                        Icons.arrow_drop_up_outlined,
+                        color: Colors.green,
+                        size: 40,
+                      )
+                    : Icon(
+                        Icons.arrow_drop_down_outlined,
+                        color: Colors.red,
+                        size: 40,
+                      ),
+                Text("₹${price!.data[index].change}  ",
+                    style: TextStyle(fontSize: 18)),
+                Text("$changePercentage%", style: TextStyle(fontSize: 18)),
+              ],
+            ).p4(),
+          ).py8(),
+          Center(
+              child: Container(
+            child: Chart(),
+            height: 400,
+          )),
+        ],
+      ),
     );
   }
 }
