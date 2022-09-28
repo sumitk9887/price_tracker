@@ -50,6 +50,8 @@ class _BodyState extends State<Body> {
 
 
   @override
+
+
   Widget build(BuildContext context) {
     return StreamBuilder<Price>(
       stream: _streamController.stream,

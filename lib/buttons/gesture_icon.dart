@@ -1,8 +1,6 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../models/price.dart';
 
 class PlayPauseButton extends StatefulWidget {
   
@@ -22,6 +20,7 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
     if (currentlyPlaying == false) {
       currentlyPlaying = true;
       _animationController.forward();
+      
     } else {
       currentlyPlaying = false;
       _animationController.reverse();
@@ -30,9 +29,8 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
 
   @override
   void initState() {
-    // TODO: implement initState
     _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 150));
+        vsync: this, duration: const Duration(milliseconds: 250));
   }
 
   @override
