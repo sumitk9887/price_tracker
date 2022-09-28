@@ -1,25 +1,19 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
-
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
-
 import '../models/price.dart';
 import 'history_page.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
-
   @override
   State<Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
   final StreamController<Price> _streamController = StreamController();
-
   Future<Price?> getPrice() async {
     var client = http.Client();
     var newsModel;
@@ -40,10 +34,13 @@ class _BodyState extends State<Body> {
 
     return newsModel;
   }
-
+  
   @override
   void initState() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    /** List view data will be
+     * updated after every 5 seconds
+     */
+   Timer.periodic(const Duration(seconds: 5), (timer) {
       getPrice();
     });
     super.initState();

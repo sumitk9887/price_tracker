@@ -14,10 +14,10 @@ class HistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String changePercentage;
+    //calculating the change % of the stock
     changePercentage =
         ((price!.data[index].change / price!.data[index].price) * 100)
             .toStringAsFixed(2);
-    // ignore: duplicate_ignore
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 240, 168, 192),
@@ -40,6 +40,12 @@ class HistoryPage extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.w500, fontSize: 18))
                     .p2(),
+
+                /** If the change in the stock price is
+                 * +ve or == 0 it will show greem color, else it 
+                 * will show red
+                 */
+
                 price!.data[index].change >= 0
                     ? Icon(
                         Icons.arrow_drop_up_outlined,

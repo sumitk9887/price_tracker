@@ -17,10 +17,12 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
 
   bool currentlyPlaying = false;
   void _iconTapped() {
+
+    //when in play mode
     if (currentlyPlaying == false) {
       currentlyPlaying = true;
       _animationController.forward();
-      
+    //when in pause mode
     } else {
       currentlyPlaying = false;
       _animationController.reverse();

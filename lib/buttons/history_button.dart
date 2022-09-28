@@ -15,6 +15,11 @@ class HistoryButton extends StatelessWidget {
       onPressed: () {
         var tempPrice = 0;
         var count = 0;
+        /**calculating which stock has the 
+         * highest price to how on the
+         * history page
+         */
+
         for (var i = 0; i < snapshot!.data.length.toInt(); i++) {
           if (snapshot!.data[i].price > tempPrice) {
             tempPrice = tempPrice + snapshot!.data[i].price.toInt();

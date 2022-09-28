@@ -37,6 +37,12 @@ class _HomePageState extends State<HomePage> {
             FutureBuilder(
                 future: _priceModel,
                 builder: (context, snapshot) {
+
+                  /**calling history button
+                   * @param snapshot 
+                   * @returns Icon button which on click
+                   * navigates to history page */  
+
                   return HistoryButton(
                     snapshot: snapshot.data,
                   ); //history button

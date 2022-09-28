@@ -24,7 +24,6 @@ class _ChartState extends State<Chart> {
     return SafeArea(
         child: Scaffold(
             body: SfCartesianChart(
-      //title: ChartTitle(text: 'Yearly sales analysis'),
       tooltipBehavior: _tooltipBehavior,
 
       series: <FastLineSeries>[
@@ -49,6 +48,8 @@ class _ChartState extends State<Chart> {
       primaryYAxis: NumericAxis(labelFormat: '₹{value}'),
     )));
   }
+
+  //List of dummy data for chart
 
   List<SalesData> getChartData() {
     final List<SalesData> chartData = [
