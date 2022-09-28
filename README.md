@@ -16,9 +16,14 @@
   
 </p>
 
+## Prerequisites 
+
+| [Flutter](https://docs.flutter.dev/get-started/install) | [Dart](https://dart.dev/get-dart) | [Android Studio](https://developer.android.com/studio) |
+  
+  
 ## Dependencies
 
-| [Flutter](https://docs.flutter.dev/get-started/install) | [Dart](https://dart.dev/get-dart) | [Syncfusion_flutter_charts](https://pub.dev/packages/syncfusion_flutter_charts) | [VelocityX](https://pub.dev/packages/velocity_x) | [http](https://pub.dev/packages/http) |
+| [Syncfusion_flutter_charts](https://pub.dev/packages/syncfusion_flutter_charts) | [VelocityX](https://pub.dev/packages/velocity_x) | [http](https://pub.dev/packages/http) |
 
 
 ## Installation
