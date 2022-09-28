@@ -12,7 +12,7 @@
 <p>
 
 <a> 
-  <img src="screenshots/home.png" width="500"></a> <a><img src="screenshots/history.png" width="500"></a>
+  <img src="screenshots/home.png" width="200"></a> <a><img src="screenshots/history.png" width="200"></a>
   
 </p>
 
