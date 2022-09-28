@@ -29,6 +29,7 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
 
   @override
   void initState() {
+    super.initState();
     _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 250));
   }
@@ -36,8 +37,10 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      
       onTap: _iconTapped,
       child: AnimatedIcon(
+        color: Colors.black,
         icon: AnimatedIcons.play_pause,
         progress: _animationController,
         size: 30,

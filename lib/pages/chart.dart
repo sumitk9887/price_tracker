@@ -35,9 +35,9 @@ class _ChartState extends State<Chart> {
           xAxisName: "Price",
           yValueMapper: (SalesData sales, _) => sales.price,
           yAxisName: "Time",
-          dataLabelSettings: DataLabelSettings(isVisible: true),
+          dataLabelSettings: const DataLabelSettings(isVisible: true),
           enableTooltip: true,
-          color: Colors.orange,
+          color: const Color.fromARGB(255, 99, 235, 89),
           width: 4,
           opacity: 1,
         )

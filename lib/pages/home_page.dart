@@ -31,8 +31,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.pinkAccent[100],
-          title: Text('Stocks'),
+          backgroundColor: Color.fromARGB(255, 240, 168, 192),
+          title: Text('Stocks',style: TextStyle(fontSize: 25,color: Colors.black ),),
           actions: <Widget>[
             FutureBuilder(
                 future: _priceModel,

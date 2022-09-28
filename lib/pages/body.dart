@@ -1,9 +1,10 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import 'package:velocity_x/velocity_x.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/price.dart';
@@ -17,7 +18,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  StreamController<Price> _streamController = StreamController();
+  final StreamController<Price> _streamController = StreamController();
 
   Future<Price?> getPrice() async {
     var client = http.Client();
@@ -33,8 +34,8 @@ class _BodyState extends State<Body> {
 
         _streamController.sink.add(newsModel);
       }
-    } catch (Exception) {
-      Text(Exception.toString());
+    } on Exception {
+      return newsModel;
     }
 
     return newsModel;
@@ -48,10 +49,7 @@ class _BodyState extends State<Body> {
     super.initState();
   }
 
-
   @override
-
-
   Widget build(BuildContext context) {
     return StreamBuilder<Price>(
       stream: _streamController.stream,
@@ -61,15 +59,16 @@ class _BodyState extends State<Body> {
           itemBuilder: (context, index) {
             var dataPrice = snapshot.data?.data[index];
             return Card(
-              color: Colors.purple[200],
+              color: const Color.fromARGB(255, 215, 181, 221),
               child: ListTile(
                 leading: dataPrice == null
                     ? const CircularProgressIndicator()
                     : Text(dataPrice.sid.toString(),
-                        style: const TextStyle(
+                        style: const TextStyle(color: Colors.black,
                             fontWeight: FontWeight.w500, fontSize: 18)),
                 title: dataPrice != null
-                    ? Text("₹${dataPrice.price}", textAlign: TextAlign.end)
+                    ? Text("₹${dataPrice.price}", textAlign: TextAlign.end,style: const TextStyle(color: 
+                    Colors.black),)
                     : const Text(""),
                 trailing: dataPrice != null
                     ? dataPrice.change > 0
@@ -94,7 +93,7 @@ class _BodyState extends State<Body> {
                               )));
                 },
               ),
-            ).p2();
+            );
           },
         );
       },
