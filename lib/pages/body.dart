@@ -19,7 +19,7 @@ class _BodyState extends State<Body> {
     var newsModel;
     try {
       var response = await client.get(Uri.parse(
-          "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC,MRF,HDFC,TATA,ACC,SBIN,RIL,RAIL,BAJAJ,JBM,SBIL,SBIC,IDBI"));
+          "https://api.tickertape.in/stocks/quotes?sids=TCS,RELI,HDBK,INFY,ITC,MRF,HDFC,TATA,+"));
       if (response.statusCode == 200) {
         var jsonString = response.body;
         var jsonMap = json.decode(jsonString);

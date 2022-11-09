@@ -40,6 +40,7 @@ dependencies:
   http: ^0.13.5
  
   syncfusion_flutter_charts: ^20.2.50
+  rename: ^2.0.1
 
 dev_dependencies:
   flutter_test:
